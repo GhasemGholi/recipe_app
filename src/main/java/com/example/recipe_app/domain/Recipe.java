@@ -1,29 +1,21 @@
 package com.example.recipe_app.domain;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Objects;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Recipe {
-    @Id
-    private Long id;
     private String name;
     private String description;
-    @ElementCollection
-    private List<String> ingredients;
-    private int timeToCook;
+    private List<Ingredient> ingredients;
+    private String timeToCook;
     private String typeOfMeal;
 
     @Override
@@ -32,11 +24,6 @@ public class Recipe {
         if (o == null || getClass() != o.getClass()) return false;
         Recipe recipe = (Recipe) o;
         return name.equals(recipe.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
     }
 
     @Override

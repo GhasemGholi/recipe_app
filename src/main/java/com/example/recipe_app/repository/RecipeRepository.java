@@ -1,12 +1,13 @@
 package com.example.recipe_app.repository;
 
+
 import com.example.recipe_app.domain.Recipe;
-import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Set;
 
-public interface RecipeRepository extends CrudRepository<Recipe, Long> {
-    Recipe findRecipe(String recipe);
-    Recipe setRecipe(Recipe recipe);
-    List<Recipe> findAll();
+public interface RecipeRepository {
+    Recipe findRecipe(String name);
+    void saveRecipe(Recipe recipe);
+    Set<Recipe> findAll();
 }
